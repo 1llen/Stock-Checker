@@ -150,7 +150,8 @@ class StockChecker:
         """
         try:
             response = requests.get(url, headers=self.headers)
-            print(f"\nResponse status code: {response.status_code}")
+            # DEBUG
+            # print(f"\nResponse status code: {response.status_code}")
             response.raise_for_status()
             return response.text
         except requests.RequestException as e:
