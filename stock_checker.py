@@ -200,7 +200,7 @@ class StockChecker:
 
     def parse_stock_status(self, html_content: str, site_name: str) -> tuple[bool, str, str]:
         """
-        Parse HTML content to determine stock status.
+        Parse HTML content to determine stock status by looking for add to cart buttons.
         
         Args:
             html_content (str): The HTML content to parse
@@ -214,16 +214,36 @@ class StockChecker:
 
         soup = BeautifulSoup(html_content, 'html.parser')
         
-        out_of_stock_indicators = [
-            'out of stock',
-            'sold out',
-            'currently unavailable',
-            'notify me when available'
-        ]
-        
+        # Get product name from h1 tag
         product_name = soup.find('h1').text.strip() if soup.find('h1') else 'Product'
-        page_text = soup.get_text().lower()
-        is_in_stock = not any(indicator in page_text for indicator in out_of_stock_indicators)
+        
+        # Find all submit buttons
+        submit_buttons = soup.find_all('button', attrs={'type': 'submit'})
+        
+        # Check if any submit button contains "Add to cart" text
+        is_in_stock = False
+        for button in submit_buttons:
+            # Get all text content from the button
+            button_text = button.get_text(strip=True, separator=' ').lower()
+            
+            # Check if button is not disabled and contains "add to cart"
+            is_disabled = (
+                button.get('aria-disabled') == 'true' or
+                'disabled' in button.attrs or
+                'sold out' in button_text.lower()
+            )
+            
+            if 'add to cart' in button_text and not is_disabled:
+                is_in_stock = True
+                break
+        
+        # Log the findings for debugging
+        logging.debug(f"""
+            Site: {site_name}
+            Product: {product_name}
+            Submit buttons found: {len(submit_buttons)}
+            In stock: {is_in_stock}
+        """)
         
         return is_in_stock, product_name, site_name
 
@@ -375,5 +395,9 @@ class StockChecker:
 
 if __name__ == "__main__":
     # DEBUG:
-    print("TODO...")
+    print("--DEBUG--")
+
+
+
+
     
