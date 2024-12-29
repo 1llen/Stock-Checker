@@ -109,7 +109,6 @@ pokemon-stock-checker/
 │   ├── __init__.py
 │   └── [test files]
 ├── .env
-├── .env.example
 ├── cli.py
 ├── stock_checker.py
 └── requirements.txt
