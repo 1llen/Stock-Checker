@@ -15,50 +15,50 @@ A Python-based CLI tool for monitoring stock availability on multiple websites. 
 
 1. Clone the repository:
 
-```bash
-git clone [TODO]
-cd Stock-Checker
-```
+   ```bash
+   git clone [TODO]
+   cd Stock-Checker
+   ```
 
 2. Create and activate a virtual environment:
 
-```bash
-# Windows
-python -m venv .venv
-.venv\Scripts\activate
+   ```bash
+   # Windows
+   python -m venv .venv
+   .venv\Scripts\activate
 
-# macOS/Linux
-python3 -m venv .venv
-source .venv/bin/activate
-```
+   # macOS/Linux
+   python3 -m venv .venv
+   source .venv/bin/activate
+   ```
 
 3. Install required packages:
 
-```bash
-pip install -r requirements.txt
-```
+   ```bash
+   pip install -r requirements.txt
+   ```
 
 4. Create a `.env` file:
 
-```bash
-touch .env
-```
+   ```bash
+   touch .env
+   ```
 
 5. Configure your `.env` file with your email settings and preferences:
 
-```plaintext
-# SMTP Configuration
-SMTP_SERVER=smtp.gmail.com
-SMTP_PORT=587
-SENDER_EMAIL=your-email@gmail.com
-SENDER_PASSWORD=your-app-specific-password
+   ```plaintext
+   # SMTP Configuration
+   SMTP_SERVER=smtp.gmail.com
+   SMTP_PORT=587
+   SENDER_EMAIL=your-email@gmail.com
+   SENDER_PASSWORD=your-app-specific-password
 
-# Application Settings
-CHECK_INTERVAL=300
-LINKS_DIRECTORY=./links
-LOG_LEVEL=INFO
-CSV_FILENAME=pokemon_products.csv
-```
+   # Application Settings
+   CHECK_INTERVAL=300
+   LINKS_DIRECTORY=./links
+   LOG_LEVEL=INFO
+   CSV_FILENAME=pokemon_products.csv
+   ```
 
 ## Setting up Gmail for Notifications
 
@@ -83,9 +83,9 @@ example_product,example_retailer,https://example.link
 
 1. Start the program:
 
-```bash
-python cli.py
-```
+   ```bash
+   python cli.py
+   ```
 
 2. Follow the prompts to:
 
