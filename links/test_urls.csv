@@ -1,3 +1,10 @@
-key,url
-"test_exist","https://example.com/etb1"
-"test_exist","https://example.com/etb2"
+key,site_name,url
+product_type_1,TestStore1,https://teststore1.com/products/test-product-1
+product_type_1,TestStore2,https://teststore2.com/products/test-product-1
+product_type_1,TestStore3,https://teststore3.com/products/test-product-1
+product_type_2,TestStore1,https://teststore1.com/products/test-product-2
+product_type_2,TestStore2,https://teststore2.com/products/test-product-2
+product_type_3,TestStore1,https://teststore1.com/products/test-product-3
+product_type_3,TestStore3,https://teststore3.com/products/test-product-3
+product_type_4,TestStore1,https://teststore1.com/products/test-product-4
+product_type_4,TestStore2,https://teststore2.com/products/test-product-4
